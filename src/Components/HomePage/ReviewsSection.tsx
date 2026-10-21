@@ -1,0 +1,257 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import heroBg from "@/assets/homepage/homeheroimg.png";
+
+export default function ReviewsSection() {
+  const row1 = [
+    {
+      quote:
+        "The couture cut transformed my daily routine completely. Meticulous precision and an atmosphere of pure tranquility.",
+      author: "Lady Charlotte Hastings",
+      service: "Signature Couture Cut",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "Vivid.Co is London's best kept secret. The organic botanical treatment restored my hair's texture like nothing else.",
+      author: "Sophia Kensington",
+      service: "Botanical Hair Therapy",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "An exquisite sanctuary. The attention to detail from the moment you step in until you leave is unparalleled.",
+      author: "Amelia Sterling",
+      service: "Dermal Radiance Facial",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "Subtle refinement at its highest level. My balayage looks naturally sun-kissed even after months.",
+      author: "Elena Rostova",
+      service: "Artisan Balayage",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+  ];
+
+  const row2 = [
+    {
+      quote:
+        "Restraint and perfection. Elena and her team understand organic beauty better than any salon in Mayfair.",
+      author: "Victoria Vance",
+      service: "Full Restoration Ritual",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "The private suite experience ensures absolute peace. No rush, no noise—just high artistry.",
+      author: "Clara De Witt",
+      service: "Private Suite Session",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "Cold laser therapy paired with their active botanical serums left my skin glowing for weeks.",
+      author: "Isabella Mercer",
+      service: "Cellular Rejuvenation",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "Architectural dry cutting that moves naturally with your facial structure. Truly transformative.",
+      author: "Hannah Montgomery",
+      service: "Architectural Cut",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+  ];
+
+  const row3 = [
+    {
+      quote:
+        "No harsh chemical smells, only soothing organic tinctures. A masterclass in luxury hair care.",
+      author: "Camilla Beauchamp",
+      service: "Organic Glossing",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "Every visit feels like an intentional wellness retreat. Highly recommended for discerning guests.",
+      author: "Genevieve Thorne",
+      service: "Seasonal Privileges",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "The bespoke diagnostic analysis opened my eyes to proper scalp health. Exceptional results.",
+      author: "Sienna Fitzgerald",
+      service: "Scalp Diagnostic Ritual",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+    {
+      quote:
+        "Impeccable taste, sharp geometry, and timeless styling. Vivid.Co sets a new standard.",
+      author: "Olivia Pemberton",
+      service: "Signature Styling",
+      rating: "★★★★★",
+      avatar: heroBg,
+    },
+  ];
+
+  return (
+    <section className="w-full bg-[#FAFAFA] text-stone-900 py-20 lg:py-28 border-b border-stone-200/60 overflow-hidden relative">
+      
+      {/* Centered Section Header */}
+      <div className="max-w-3xl mx-auto px-6 text-center space-y-4 mb-16 sm:mb-20">
+        <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-400 font-medium">
+          Words of Affirmation • Client Stories
+        </p>
+        <h2 className="text-3xl sm:text-5xl font-extralight tracking-tight text-stone-900 leading-[1.15]">
+          Client Chronicles
+        </h2>
+        <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed tracking-wide pt-1">
+          Reflections from guests who have experienced our sanctuary of subtle perfection and architectural artistry.
+        </p>
+      </div>
+
+      {/* Marquee Rows Container with Side Fade Masks */}
+      <div className="relative w-full space-y-4 overflow-hidden">
+        
+        {/* Left & Right Blurry Fade Overlays 
+        <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10 pointer-events-none" />*/}
+
+        {/* Row 1: Left to Right */}
+        <div className="flex w-full overflow-hidden">
+          <div className="flex gap-4 animate-scroll-right whitespace-nowrap min-w-full">
+            {[...row1, ...row1, ...row1].map((review, idx) => (
+              <ReviewCard key={`row1-${idx}`} review={review} />
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2: Right to Left */}
+        <div className="flex w-full overflow-hidden">
+          <div className="flex gap-4 animate-scroll-left whitespace-nowrap min-w-full">
+            {[...row2, ...row2, ...row2].map((review, idx) => (
+              <ReviewCard key={`row2-${idx}`} review={review} />
+            ))}
+          </div>
+        </div>
+
+        {/* Row 3: Left to Right */}
+        <div className="flex w-full overflow-hidden">
+          <div className="flex gap-4 animate-scroll-right whitespace-nowrap min-w-full">
+            {[...row3, ...row3, ...row3].map((review, idx) => (
+              <ReviewCard key={`row3-${idx}`} review={review} />
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      {/* Pure Seamless CSS Animations - No Hover Speed Disruptions */}
+      <style jsx global>{`
+        @keyframes scrollRight {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+
+        @keyframes scrollLeft {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll-right {
+          animation: scrollRight 60s linear infinite;
+          will-change: transform;
+        }
+
+        .animate-scroll-left {
+          animation: scrollLeft 60s linear infinite;
+          will-change: transform;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+{/* Individual Minimalist Review Card */}
+function ReviewCard({
+  review,
+}: {
+  review: {
+    quote: string;
+    author: string;
+    service: string;
+    rating: string;
+    avatar: any;
+  };
+}) {
+  return (
+    <div className="w-[340px] sm:w-[400px] bg-white border border-stone-200/80 p-6 flex flex-col justify-between shrink-0 whitespace-normal text-left shadow-sm">
+      <div className="space-y-4">
+        {/* Rating & Service Badge */}
+        <div className="flex justify-between items-center text-amber-800 text-xs tracking-widest">
+          <span>{review.rating}</span>
+          <span className="text-[10px] uppercase text-stone-400 tracking-[0.2em] font-light">
+            {review.service}
+          </span>
+        </div>
+
+        {/* Review Quote */}
+        <p className="text-stone-700 text-xs sm:text-sm font-light leading-relaxed italic">
+          &ldquo;{review.quote}&rdquo;
+        </p>
+      </div>
+
+      {/* Card Footer: Rounded Avatar & Author Info */}
+      <div className="pt-4 mt-5 border-t border-stone-100 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          {/* Client Avatar (Rounded) */}
+          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-stone-200/80 shrink-0">
+            <Image
+              src={review.avatar}
+              alt={review.author}
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+
+          <div className="flex flex-col text-left">
+            <span className=" text-xs text-stone-900 font-normal tracking-wide">
+              {review.author}
+            </span>
+            <span className="text-[9px] uppercase tracking-widest text-stone-400 font-light">
+              Verified Guest
+            </span>
+          </div>
+        </div>
+
+        <span className="text-[10px] uppercase tracking-widest text-amber-800/80 font-medium">
+          Verified
+        </span>
+      </div>
+    </div>
+  );
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Common/Navbar";
+import Footer from "@/Components/Common/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col bg-white font-sans text-gray-900">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

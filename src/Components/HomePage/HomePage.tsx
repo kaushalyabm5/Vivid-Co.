@@ -9,6 +9,8 @@ import BotanicalPhilosophy from './BotanicalPhilosophy'
 import SpecialOffers from './SpecialOffers'
 import OwnerSection from './OwnerSection'
 import TeamSection from './TeamSection'
+import ReviewsSection from './ReviewsSection'
+import LocationContactSection from './LocationContactSection'
 
 const HomePage = () => {
   return (
@@ -23,6 +25,8 @@ const HomePage = () => {
         <Gallery />
         <SpecialOffers />
         <TeamSection />
+        <ReviewsSection />
+        <LocationContactSection />
     </div>
   )
 }

@@ -9,29 +9,29 @@ export default function TeamSection() {
     {
       id: "01",
       name: "Sienna Miller",
-      role: "Master Colorist & Stylist",
+      role: "Master Colorist",
       specialty: "European Balayage & Dimensional Tones",
       image: heroBg,
     },
     {
       id: "02",
       name: "Julian Thorne",
-      role: "Senior Hair Sculptor",
-      specialty: "Precision Dry Cuts & Architectural Styling",
+      role: "Hair Sculptor",
+      specialty: "Precision Dry Cuts & Architecture",
       image: heroBg,
     },
     {
       id: "03",
       name: "Amara Chen",
-      role: "Lead Dermal & Skin Specialist",
-      specialty: "Botanical Cellular Rejuvenation & Facials",
+      role: "Dermal Lead",
+      specialty: "Botanical Cellular Rejuvenation",
       image: heroBg,
     },
     {
       id: "04",
       name: "Lucas Wright",
-      role: "Creative Texture Artist",
-      specialty: "Organic Keratin Treatments & Waves",
+      role: "Texture Artist",
+      specialty: "Organic Keratin & Wave Infusions",
       image: heroBg,
     },
   ];
@@ -41,54 +41,55 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 sm:mb-20 gap-6 text-left">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6 text-left">
           <div className="space-y-3 max-w-xl">
             <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-400 font-medium">
-              The Artisans • Mastery in Practice
+              The Collective • Artistry in Practice
             </p>
-            <h2 className="text-3xl sm:text-5xl font-extralight tracking-tight font-serif text-stone-900 leading-[1.15]">
-              Our Creative Collective
+            <h2 className="text-3xl sm:text-5xl font-extralight tracking-tight text-stone-900 leading-[1.15]">
+              Meet Our Artisans
             </h2>
           </div>
 
           <div className="max-w-md">
             <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed tracking-wide">
-              A curated house of visionary stylists and skin therapists dedicated to the art of subtle refinement and bespoke care.
+              A curated house of visionary stylists and dermal therapists dedicated to bespoke refinement and individual beauty.
             </p>
           </div>
         </div>
 
-        {/* Team Grid (4 Columns) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        {/* Single Frame Unified Layout (All 4 Members side-by-side in one sharp box) */}
+        <div className="w-full border border-stone-200/80 bg-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-stone-200/80 overflow-hidden shadow-sm">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group flex flex-col justify-between border border-stone-200/80 bg-white overflow-hidden hover:border-stone-400 transition-all duration-500"
+              className="group relative flex flex-col justify-between h-[450px] sm:h-[480px] lg:h-[520px] overflow-hidden bg-white hover:bg-stone-50 transition-colors duration-500"
             >
-              {/* Member Portrait Image (Flush Edge-to-Edge) */}
-              <div className="relative w-full aspect-[3/4] overflow-hidden border-b border-stone-100">
+              {/* Image Container (Takes Full Top Section of Column) */}
+              <div className="relative w-full h-[68%] overflow-hidden bg-stone-100">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
+                
+                {/* ID Number Overlay */}
+              
               </div>
 
-              {/* Member Info Content */}
-              <div className="p-6 space-y-3 text-left">
-                <div className="flex justify-between items-center text-[10px] tracking-[0.2em] uppercase text-amber-800 font-medium">
-                  <span>{member.role}</span>
-                  <span className="font-serif text-stone-400 font-normal">
-                    {member.id}
-                  </span>
+              {/* Text Info Section (Aligned Bottom Portion of Column) */}
+              <div className="p-6 h-[32%] flex flex-col justify-between text-left border-t border-stone-100">
+                <div className="space-y-1">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-amber-800 font-medium">
+                    {member.role}
+                  </p>
+                  <h3 className="text-xl sm:text-2xl font-light text-stone-900 tracking-tight">
+                    {member.name}
+                  </h3>
                 </div>
 
-                <h3 className="text-xl font-light text-stone-900 tracking-tight font-serif">
-                  {member.name}
-                </h3>
-
-                <p className="text-stone-500 text-xs font-light leading-relaxed pt-1">
+                <p className="text-stone-500 text-xs font-light leading-relaxed line-clamp-2">
                   {member.specialty}
                 </p>
               </div>

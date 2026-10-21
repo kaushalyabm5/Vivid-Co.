@@ -49,7 +49,7 @@ export default function Navbar() {
       >
         <div
           className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "h-16" : "h-20"
+            isScrolled ? "h-14" : "h-20"
           }`}
         >
           
@@ -77,7 +77,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-xs uppercase tracking-[0.2em] font-normal transition-colors duration-300 ${
+                className={`text-[.7rem] uppercase tracking-[0.2em] font-normal transition-colors duration-300 ${
                   isScrolled
                     ? "text-neutral-900 hover:text-stone-900"
                     : "text-white hover:text-white"
