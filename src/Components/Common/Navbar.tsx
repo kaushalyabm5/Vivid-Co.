@@ -138,7 +138,7 @@ export default function Navbar() {
       >
         {/* Top Header inside Overlay */}
         <div className="flex items-center justify-between w-full">
-          <span className="font-serif text-2xl font-normal tracking-wider text-stone-900">
+          <span className=" text-2xl font-normal tracking-wider text-stone-900">
             Vivid<span className="text-amber-800 font-sans text-xl">.Co</span>
           </span>
 
@@ -161,7 +161,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`font-serif text-3xl sm:text-5xl font-light text-stone-900 hover:text-amber-900 transition-all duration-300 tracking-wide transform ${
+                className={` text-3xl sm:text-5xl font-light text-stone-900 hover:text-amber-900 transition-all duration-300 tracking-wide transform ${
                   isMenuOpen
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
