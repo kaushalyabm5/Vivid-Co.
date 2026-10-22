@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg.png";
+import package1 from "@/assets/homepage/packages/p1.jpg";
+import package2 from "@/assets/homepage/packages/p2.jpg";
 
 export default function SpecialOffers() {
   const offers = [
@@ -16,7 +17,7 @@ export default function SpecialOffers() {
       validity: "Valid through November 30",
       originalPrice: "£240",
       offerPrice: "£180",
-      image: heroBg,
+      image: package1,
     },
     {
       id: "02",
@@ -27,7 +28,7 @@ export default function SpecialOffers() {
       validity: "Limited to 15 Guests / Month",
       originalPrice: "£305",
       offerPrice: "£235",
-      image: heroBg,
+      image: package2,
     },
   ];
 

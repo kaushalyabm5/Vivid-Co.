@@ -2,7 +2,18 @@
 
 import React from "react";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg.png";
+import r1 from "@/assets/homepage/reviews/1.jpg";
+import r2 from "@/assets/homepage/reviews/2.jpg";
+import r3 from "@/assets/homepage/reviews/3.jpg";
+import r4 from "@/assets/homepage/reviews/4.jpg";
+import r5 from "@/assets/homepage/reviews/5.jpg";
+import r6 from "@/assets/homepage/reviews/6.jpg";
+import r7 from "@/assets/homepage/reviews/7.jpg";
+import r8 from "@/assets/homepage/reviews/8.jpg";
+import r9 from "@/assets/homepage/reviews/9.jpg";
+import r10 from "@/assets/homepage/reviews/10.jpg";
+import r11 from "@/assets/homepage/reviews/11.jpg";
+import r12 from "@/assets/homepage/reviews/12.jpg";
 
 export default function ReviewsSection() {
   const row1 = [
@@ -12,7 +23,7 @@ export default function ReviewsSection() {
       author: "Lady Charlotte Hastings",
       service: "Signature Couture Cut",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r1,
     },
     {
       quote:
@@ -20,7 +31,7 @@ export default function ReviewsSection() {
       author: "Sophia Kensington",
       service: "Botanical Hair Therapy",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r2,
     },
     {
       quote:
@@ -28,7 +39,7 @@ export default function ReviewsSection() {
       author: "Amelia Sterling",
       service: "Dermal Radiance Facial",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r3,
     },
     {
       quote:
@@ -36,7 +47,7 @@ export default function ReviewsSection() {
       author: "Elena Rostova",
       service: "Artisan Balayage",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r4,
     },
   ];
 
@@ -47,7 +58,7 @@ export default function ReviewsSection() {
       author: "Victoria Vance",
       service: "Full Restoration Ritual",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r5,
     },
     {
       quote:
@@ -55,7 +66,7 @@ export default function ReviewsSection() {
       author: "Clara De Witt",
       service: "Private Suite Session",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r6,
     },
     {
       quote:
@@ -63,7 +74,7 @@ export default function ReviewsSection() {
       author: "Isabella Mercer",
       service: "Cellular Rejuvenation",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r7,
     },
     {
       quote:
@@ -71,7 +82,7 @@ export default function ReviewsSection() {
       author: "Hannah Montgomery",
       service: "Architectural Cut",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r8,
     },
   ];
 
@@ -82,7 +93,7 @@ export default function ReviewsSection() {
       author: "Camilla Beauchamp",
       service: "Organic Glossing",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r9,
     },
     {
       quote:
@@ -90,7 +101,7 @@ export default function ReviewsSection() {
       author: "Genevieve Thorne",
       service: "Seasonal Privileges",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r10,
     },
     {
       quote:
@@ -98,7 +109,7 @@ export default function ReviewsSection() {
       author: "Sienna Fitzgerald",
       service: "Scalp Diagnostic Ritual",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r11,
     },
     {
       quote:
@@ -106,7 +117,7 @@ export default function ReviewsSection() {
       author: "Olivia Pemberton",
       service: "Signature Styling",
       rating: "★★★★★",
-      avatar: heroBg,
+      avatar: r12,
     },
   ];
 

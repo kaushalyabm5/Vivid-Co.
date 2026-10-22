@@ -2,7 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg.png";
+import artisian1 from "@/assets/homepage/artisian/1.jpg";
+import artisian2 from "@/assets/homepage/artisian/2.jpg";
+import artisian3 from "@/assets/homepage/artisian/3.jpg";
+import artisian4 from "@/assets/homepage/artisian/4.jpg";
 
 export default function TeamSection() {
   const teamMembers = [
@@ -11,28 +14,28 @@ export default function TeamSection() {
       name: "Sienna Miller",
       role: "Master Colorist",
       specialty: "European Balayage & Dimensional Tones",
-      image: heroBg,
+      image: artisian1,
     },
     {
       id: "02",
       name: "Julian Thorne",
       role: "Hair Sculptor",
       specialty: "Precision Dry Cuts & Architecture",
-      image: heroBg,
+      image: artisian2,
     },
     {
       id: "03",
       name: "Amara Chen",
       role: "Dermal Lead",
       specialty: "Botanical Cellular Rejuvenation",
-      image: heroBg,
+      image: artisian3,
     },
     {
       id: "04",
       name: "Lucas Wright",
       role: "Texture Artist",
       specialty: "Organic Keratin & Wave Infusions",
-      image: heroBg,
+      image: artisian4,
     },
   ];
 
