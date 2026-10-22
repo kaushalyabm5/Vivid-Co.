@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg.png";
+import heroBg from "@/assets/homepage/home-img-10.jpg";
 
 export default function OwnerSection() {
   return (

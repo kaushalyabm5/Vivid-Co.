@@ -3,7 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg.png";
+import Img1 from "@/assets/homepage/home-img-6.jpg";
+import Img2 from "@/assets/homepage/home-img-7.jpg";
+import Img3 from "@/assets/homepage/home-img-8.jpg";
 
 export default function FeaturedServices() {
   const services = [
@@ -15,7 +17,7 @@ export default function FeaturedServices() {
         "Precision dry cutting and architectural styling tailored to your facial symmetry and organic hair movement.",
       duration: "75 Min",
       price: "From £140",
-      image: heroBg,
+      image: Img1,
     },
     {
       id: "02",
@@ -25,7 +27,7 @@ export default function FeaturedServices() {
         "Deep cellular rejuvenation utilizing active organic serums, lymphatic drainage massage, and cold laser therapy.",
       duration: "60 Min",
       price: "From £165",
-      image: heroBg,
+      image: Img2,
     },
     {
       id: "03",
@@ -35,7 +37,7 @@ export default function FeaturedServices() {
         "Hand-painted multidimensional highlights finished with a custom peptide-infused gloss for glass-like shine.",
       duration: "120 Min",
       price: "From £220",
-      image: heroBg,
+      image: Img3,
     },
   ];
 

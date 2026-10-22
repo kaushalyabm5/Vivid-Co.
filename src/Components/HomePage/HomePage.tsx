@@ -11,6 +11,7 @@ import OwnerSection from './OwnerSection'
 import TeamSection from './TeamSection'
 import ReviewsSection from './ReviewsSection'
 import LocationContactSection from './LocationContactSection'
+import HorizontalGallery from './HorizontalGallery'
 
 const HomePage = () => {
   return (
@@ -22,7 +23,7 @@ const HomePage = () => {
         <BotanicalPhilosophy />
         <FeaturedServices />
         <OwnerSection />
-        <Gallery />
+        <HorizontalGallery />
         <SpecialOffers />
         <TeamSection />
         <ReviewsSection />

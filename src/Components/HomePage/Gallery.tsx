@@ -2,16 +2,40 @@
 
 import React from "react";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg.png";
+
+// Importing images 1 to 24 from src/assets/homepage/home-gallery/
+import img1 from "@/assets/homepage/home-gallery/1.jpg";
+import img2 from "@/assets/homepage/home-gallery/2.jpg";
+import img3 from "@/assets/homepage/home-gallery/3.jpg";
+import img4 from "@/assets/homepage/home-gallery/4.jpg";
+import img5 from "@/assets/homepage/home-gallery/5.jpg";
+import img6 from "@/assets/homepage/home-gallery/6.jpg";
+import img7 from "@/assets/homepage/home-gallery/7.jpg";
+import img8 from "@/assets/homepage/home-gallery/8.jpg";
+import img9 from "@/assets/homepage/home-gallery/9.jpg";
+import img10 from "@/assets/homepage/home-gallery/10.jpg";
+import img11 from "@/assets/homepage/home-gallery/11.jpg";
+import img12 from "@/assets/homepage/home-gallery/12.jpg";
+import img13 from "@/assets/homepage/home-gallery/13.jpg";
+import img14 from "@/assets/homepage/home-gallery/14.jpg";
+import img15 from "@/assets/homepage/home-gallery/15.jpg";
+import img16 from "@/assets/homepage/home-gallery/16.jpg";
+import img17 from "@/assets/homepage/home-gallery/17.jpg";
+import img18 from "@/assets/homepage/home-gallery/18.jpg";
+import img19 from "@/assets/homepage/home-gallery/19.jpg";
+import img20 from "@/assets/homepage/home-gallery/20.jpg";
+import img21 from "@/assets/homepage/home-gallery/21.jpg";
+import img22 from "@/assets/homepage/home-gallery/22.jpg";
+import img23 from "@/assets/homepage/home-gallery/23.jpg";
+import img24 from "@/assets/homepage/home-gallery/24.jpg";
 
 export default function Gallery() {
-  // Demo images array using your local image asset
+  // Distributing 24 images across 4 columns (6 images per column)
   const columnImages = [
-    [heroBg, heroBg, heroBg],
-    [heroBg, heroBg, heroBg],
-    [heroBg, heroBg, heroBg],
-    [heroBg, heroBg, heroBg],
-    [heroBg, heroBg, heroBg],
+    [img1, img2, img3, img4, img5, img6],       // Column 1: Images 1 to 6
+    [img7, img8, img9, img10, img11, img12],    // Column 2: Images 7 to 12
+    [img13, img14, img15, img16, img17, img18], // Column 3: Images 13 to 18
+    [img19, img20, img21, img22, img23, img24], // Column 4: Images 19 to 24
   ];
 
   return (
@@ -26,25 +50,19 @@ export default function Gallery() {
         </h2>
       </div>
 
-      {/* 5-Column Parallax Collage Container */}
-      <div className="w-full px-1 sm:px-2 lg:px-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1 h-[650px] sm:h-[750px] overflow-hidden relative">
+      {/* 4-Column Parallax Collage Container with Increased Height */}
+      <div className="w-full px-3 sm:px-6 lg:px-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 h-[650px] sm:h-[820px] overflow-hidden relative">
           
-          {/* Top Mist Fade Mask 
-          <div className="absolute top-0 left-0 w-full h-28 bg-gradient-to-b from-[#FAFAFA] via-[#FAFAFA]/90 to-transparent z-10 pointer-events-none backdrop-blur-[2px]" />*/}
-          
-          {/* Bottom Mist Fade Mask 
-          <div className="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-[#FAFAFA] via-[#FAFAFA]/90 to-transparent z-10 pointer-events-none backdrop-blur-[2px]" />*/}
-
           {columnImages.map((col, colIdx) => {
             const isEven = colIdx % 2 === 0;
             return (
               <div
                 key={colIdx}
-                className="flex flex-col gap-1 relative overflow-hidden"
+                className="flex flex-col gap-2.5 sm:gap-4 relative overflow-hidden"
               >
                 <div
-                  className={`flex flex-col gap-1 ${
+                  className={`flex flex-col gap-2.5 sm:gap-4 ${
                     isEven ? "animate-scroll-down" : "animate-scroll-up"
                   }`}
                 >
@@ -52,7 +70,7 @@ export default function Gallery() {
                   {[...col, ...col].map((imgSrc, imgIdx) => (
                     <div
                       key={imgIdx}
-                      className="relative w-full aspect-[3/4] overflow-hidden group border border-stone-200/30"
+                      className="relative w-full aspect-[9/16] overflow-hidden group border border-stone-200/40 shadow-sm"
                     >
                       <Image
                         src={imgSrc}
@@ -91,11 +109,11 @@ export default function Gallery() {
         }
 
         .animate-scroll-down {
-          animation: scrollDown 45s linear infinite;
+          animation: scrollDown 55s linear infinite;
         }
 
         .animate-scroll-up {
-          animation: scrollUp 45s linear infinite;
+          animation: scrollUp 55s linear infinite;
         }
       `}</style>
     </section>
