@@ -39,7 +39,7 @@ export default function HorizontalGallery() {
   ];
 
   return (
-    <section className="w-full bg-[#FAFAFA] text-stone-900 py-16 lg:py-24 overflow-hidden border-b border-stone-200/60">
+    <section className="w-full bg-[#FAFAFA] text-stone-900 pt-32 pb-5 overflow-hidden border-b border-stone-200/60">
       {/* Section Header */}
       <div className="max-w-3xl mx-auto px-6 text-center space-y-3 mb-12 sm:mb-16">
         <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-400 font-medium">

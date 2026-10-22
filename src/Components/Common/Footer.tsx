@@ -182,24 +182,32 @@ export default function Footer() {
 
         </div>
 
-        {/* Large Central Brand Title (Matching the Image Style) */}
+        {/* Large Central Brand Title */}
         <div className="py-8 my-auto text-center overflow-hidden">
-          <h1 className="text-[13vw] sm:text-[14vw] lg:text-[15.5vw]  font-light leading-none tracking-tight text-stone-100/95 select-none">
+          <h1 className="text-[13vw] sm:text-[14vw] lg:text-[15.5vw] font-light leading-none tracking-tight text-stone-100/95 select-none">
             Vivid.Co
           </h1>
         </div>
 
         {/* Bottom Metadata & Scroll To Top Row */}
-        <div className="flex items-center justify-between pt-6 text-xs font-light text-stone-500 border-t border-stone-800/40">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-xs font-light text-stone-500 border-t border-stone-800/40">
           
           {/* Live London Time */}
           <div className="tracking-widest uppercase text-[10px] text-stone-400">
             {londonTime ? `${londonTime} (GMT London)` : "London Sanctuary"}
           </div>
 
-          {/* Copyright */}
-          <div className="hidden sm:block text-[10px] uppercase tracking-widest text-stone-600">
-            © {new Date().getFullYear()} Vivid.Co Salon. All Rights Reserved.
+          {/* Copyright & Designed By */}
+          <div className="text-[10px] uppercase tracking-widest text-stone-500 text-center">
+            © {new Date().getFullYear()} Vivid.Co • Design & Developed by{" "}
+            <a
+              href="https://kaushalya-cloud.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-stone-200 underline underline-offset-4 hover:text-amber-500 transition-colors duration-300"
+            >
+              Kaushalya
+            </a>
           </div>
 
           {/* Minimalist Scroll-to-Top Button */}
