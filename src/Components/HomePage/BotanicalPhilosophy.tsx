@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg.png";
+import heroBg from "@/assets/homepage/home-img-4.jpg";
 
 export default function BotanicalPhilosophy() {
   return (

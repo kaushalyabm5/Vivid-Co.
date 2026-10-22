@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg1.png";
+import heroBg from "@/assets/homepage/homeheroimg6.jpg";
 
 export default function HomeHero() {
   return (
@@ -19,7 +19,7 @@ export default function HomeHero() {
           className="object-cover object-center"
         />
         {/* Clean, premium dark tint so white text is crisp and the background image is fully vibrant */}
-        <div className="absolute inset-0 bg-stone-950/40" />
+        <div className="absolute inset-0 bg-stone-950/60" />
       </div>
 
       {/* Main Content Container (Max Width 7xl, Center Aligned) */}
