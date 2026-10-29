@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Common/Navbar";
 import Footer from "@/Components/Common/Footer";
-import SmoothScroll from "@/Components/Common/SmoothScroll"; // ඔබේ path එකට අනුව සකස් කර ගන්න
+import SmoothScroll from "@/Components/Common/SmoothScroll";
 
 const poppins = Poppins({
   variable: "--font-poppins",
