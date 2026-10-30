@@ -13,7 +13,7 @@ import inside6 from "@/assets/aboutpage/inside6.jpg";
 
 export default function AboutSanctuary() {
   return (
-    <section className="w-full bg-white text-stone-900 py-24 lg:py-32 border-b border-stone-200/80">
+    <section className="w-full bg-white text-stone-900 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 space-y-16">
         
         {/* Section Header */}

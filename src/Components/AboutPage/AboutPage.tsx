@@ -4,6 +4,7 @@ import AboutPhilosophy from './AboutPhilosophy'
 import AboutStylists from './AboutStylists'
 import AboutSanctuary from './AboutSanctuary'
 import AboutStory from './AboutStory'
+import AboutCTA from './AboutCTA'
 
 const AboutPage = () => {
   return (
@@ -13,6 +14,7 @@ const AboutPage = () => {
         <AboutPhilosophy />
         <AboutStylists />
         <AboutSanctuary />
+        <AboutCTA />
     </div>
   )
 }
