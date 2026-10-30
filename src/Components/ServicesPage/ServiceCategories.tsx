@@ -142,9 +142,7 @@ export default function ServiceCategories() {
           
           {/* Main Title & Subtitle (Centered) */}
           <div className="space-y-3 max-w-2xl">
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-amber-800 font-medium">
-              Curated Repertoire
-            </p>
+          
             <h2 className="text-3xl sm:text-5xl font-extralight tracking-tight text-stone-900">
               The Sanctuary Menu
             </h2>
