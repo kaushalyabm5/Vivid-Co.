@@ -18,7 +18,7 @@ export default function AboutStylists() {
   const stylists = [
     {
       id: "01",
-      role: "Master Colorist",
+      role: "Master Coorist",
       name: "Sienna Miller",
       specialty: "European Balayage & Dimensional Tones",
       description:
