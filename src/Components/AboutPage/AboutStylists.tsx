@@ -66,7 +66,7 @@ export default function AboutStylists() {
 
   const currentStylist = stylists[currentIndex];
 
-  // Framer Motion Slide Variants
+  // Framer Motion Slide Variants with 'as const' fix
   const cardVariants = {
     enter: (dir: number) => ({
       x: dir > 0 ? "100%" : "-100%",
@@ -76,7 +76,7 @@ export default function AboutStylists() {
       x: 0,
       opacity: 1,
       transition: {
-        x: { type: "spring", stiffness: 280, damping: 30 },
+        x: { type: "spring" as const, stiffness: 280, damping: 30 },
         opacity: { duration: 0.4 },
       },
     },
@@ -84,19 +84,21 @@ export default function AboutStylists() {
       x: dir > 0 ? "-100%" : "100%",
       opacity: 0,
       transition: {
-        x: { type: "spring", stiffness: 280, damping: 30 },
+        x: { type: "spring" as const, stiffness: 280, damping: 30 },
         opacity: { duration: 0.3 },
       },
     }),
   };
 
   return (
-    <section className="w-full bg-white text-stone-900  pt-32 pb-10 overflow-hidden">
+    <section className="w-full bg-white text-stone-900 py-20 sm:py-24 lg:py-32 border-b border-stone-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 space-y-12 sm:space-y-16">
         
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-2xl mx-auto px-2">
-        
+          <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-amber-800 font-medium">
+            Expertise & Leadership
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight tracking-tight text-stone-900 leading-[1.15]">
             The Hands Behind the Artistry
           </h2>
@@ -108,7 +110,7 @@ export default function AboutStylists() {
         {/* Carousel Outer Wrapper */}
         <div className="relative flex items-center justify-center">
           
-          {/* Left Arrow Button (Responsive Positioning for Mobile/Tablet/Desktop) */}
+          {/* Left Arrow Button */}
           <button
             onClick={prevSlide}
             aria-label="Previous Stylist"
@@ -129,7 +131,7 @@ export default function AboutStylists() {
                 exit="exit"
                 className="absolute inset-0 w-full h-full grid grid-cols-1 lg:grid-cols-12 bg-[#FAFAFA]"
               >
-                {/* Left Side: Image Container (Square on Tablet/Desktop, Responsive on Mobile) */}
+                {/* Left Side: Image Container */}
                 <div className="lg:col-span-5 relative w-full h-72 sm:h-80 lg:h-full bg-stone-200 overflow-hidden">
                   <Image
                     src={currentStylist.image}
@@ -153,7 +155,9 @@ export default function AboutStylists() {
                       <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-amber-800 font-medium">
                         {currentStylist.specialty}
                       </span>
-                    
+                      <span className="text-stone-400 text-xs tracking-[0.2em] font-light">
+                        {currentStylist.id} / 04
+                      </span>
                     </div>
 
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-stone-900 tracking-tight">
@@ -186,7 +190,7 @@ export default function AboutStylists() {
             </AnimatePresence>
           </div>
 
-          {/* Right Arrow Button (Responsive Positioning) */}
+          {/* Right Arrow Button */}
           <button
             onClick={nextSlide}
             aria-label="Next Stylist"
