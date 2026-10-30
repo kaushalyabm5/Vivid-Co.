@@ -39,7 +39,7 @@ export default function AboutPhilosophy() {
   ];
 
   return (
-    <section className="w-full bg-[#FAFAFA] text-stone-900 pt-22 pb-10">
+    <section className="w-full bg-[white] text-stone-900 pt-22 pb-10">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-20">
         
         {/* Section Header */}
