@@ -18,7 +18,7 @@ export default function AboutStylists() {
   const stylists = [
     {
       id: "01",
-      role: "Master Coorist",
+      role: "Master Colorist",
       name: "Sienna Miller",
       specialty: "European Balayage & Dimensional Tones",
       description:
@@ -91,14 +91,12 @@ export default function AboutStylists() {
   };
 
   return (
-    <section className="w-full bg-white text-stone-900 py-20 sm:py-24 lg:py-32 border-b border-stone-200/80 overflow-hidden">
+    <section className="w-full bg-white text-stone-900 pt-25 pb-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 space-y-12 sm:space-y-16">
         
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-2xl mx-auto px-2">
-          <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-amber-800 font-medium">
-            Expertise & Leadership
-          </p>
+         
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight tracking-tight text-stone-900 leading-[1.15]">
             The Hands Behind the Artistry
           </h2>
@@ -155,9 +153,7 @@ export default function AboutStylists() {
                       <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-amber-800 font-medium">
                         {currentStylist.specialty}
                       </span>
-                      <span className="text-stone-400 text-xs tracking-[0.2em] font-light">
-                        {currentStylist.id} / 04
-                      </span>
+                   
                     </div>
 
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-stone-900 tracking-tight">
