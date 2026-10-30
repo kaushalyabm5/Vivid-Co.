@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { FaWhatsapp, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,8 +35,7 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
     { name: "About Us", href: "/about" },
-    { name: "Portfolio", href: "/" },
-    { name: "Pricing", href: "/" },
+    { name: "Portfolio", href: "/portfolio" },
   ];
 
   return (
@@ -62,7 +62,7 @@ export default function Navbar() {
             >
               Vivid
               <span
-                className={` text-xl transition-colors duration-300 ${
+                className={`text-xl transition-colors duration-300 ${
                   isScrolled ? "text-black" : "text-white"
                 }`}
               >
@@ -88,18 +88,52 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right Corner: Desktop Contact Us Button */}
-          <div className="hidden lg:block">
-            <Link
-              href="/contact"
-              className={`px-7 py-2.5 text-xs uppercase tracking-widest font-light transition-all duration-300 inline-block border ${
+          {/* Right Corner: Desktop 3 Rounded Social Icons */}
+          <div className="hidden lg:flex items-center gap-2.5">
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/YOUR_PHONE_NUMBER"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-105 ${
                 isScrolled
-                  ? "bg-stone-900 hover:bg-stone-800 text-white border-stone-900"
-                  : "bg-white hover:bg-stone-100 text-stone-900 border-white"
+                  ? "bg-stone-100 text-stone-700 hover:bg-black hover:text-white"
+                  : "bg-white/20 backdrop-blur-md text-white hover:bg-black hover:text-white"
               }`}
             >
-              Contact Us
-            </Link>
+              <FaWhatsapp className="w-4 h-4" />
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://instagram.com/YOUR_USERNAME"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-105 ${
+                isScrolled
+                  ? "bg-stone-100 text-stone-700 hover:bg-black hover:text-white"
+                  : "bg-white/20 backdrop-blur-md text-white hover:bg-black hover:text-white"
+              }`}
+            >
+              <FaInstagram className="w-4 h-4" />
+            </a>
+
+            {/* Facebook */}
+            <a
+              href="https://facebook.com/YOUR_PAGE"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-105 ${
+                isScrolled
+                  ? "bg-stone-100 text-stone-700 hover:bg-black hover:text-white"
+                  : "bg-white/20 backdrop-blur-md text-white hover:bg-black hover:text-white"
+              }`}
+            >
+              <FaFacebookF className="w-3.5 h-3.5" />
+            </a>
           </div>
 
           {/* Mobile / Tablet / iPad: Menu Button */}
@@ -138,7 +172,7 @@ export default function Navbar() {
       >
         {/* Top Header inside Overlay */}
         <div className="flex items-center justify-between w-full">
-          <span className=" text-2xl font-normal tracking-wider text-stone-900">
+          <span className="text-2xl font-normal tracking-wider text-stone-900">
             Vivid<span className="text-amber-800 font-sans text-xl">.Co</span>
           </span>
 
@@ -153,7 +187,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Center Links */}
+        {/* Center Links (Contact Button removed from here) */}
         <div className="my-auto py-8 w-full flex justify-center items-center">
           <nav className="flex flex-col items-center justify-center gap-6 sm:gap-8 text-center max-w-xl mx-auto w-full">
             {navLinks.map((link, index) => (
@@ -161,7 +195,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={` text-3xl sm:text-5xl font-light text-stone-900 hover:text-amber-900 transition-all duration-300 tracking-wide transform ${
+                className={`text-3xl sm:text-5xl font-light text-stone-900 hover:text-amber-900 transition-all duration-300 tracking-wide transform ${
                   isMenuOpen
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
@@ -173,36 +207,49 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-
-            <div
-              className={`pt-4 w-full flex justify-center transform transition-all duration-300 ${
-                isMenuOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-              }`}
-              style={{
-                transitionDelay: `${isMenuOpen ? 150 + navLinks.length * 70 : 0}ms`,
-              }}
-            >
-              <Link
-                href="/contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="inline-block min-w-[200px] text-center px-10 py-4 bg-stone-900 text-white text-xs uppercase tracking-widest font-light border border-stone-900 mt-2"
-              >
-                Contact Us
-              </Link>
-            </div>
           </nav>
         </div>
 
-        {/* Footer Details inside Menu */}
-        <div className="flex flex-col sm:flex-row justify-between items-center text-xs tracking-wider text-stone-400 border-t border-stone-200/80 pt-6 gap-4">
-          <p>© Vivid.Co • London Sanctuary</p>
-          <div className="flex gap-6 text-stone-600">
-            <span className="hover:text-stone-900 cursor-pointer">Instagram</span>
-            <span className="hover:text-stone-900 cursor-pointer">WhatsApp</span>
+        {/* Footer Details inside Mobile Menu with 3 Rounded Social Icon Buttons */}
+        <div className="flex flex-col sm:flex-row justify-between items-center text-xs tracking-wider text-stone-500 border-t border-stone-200/80 pt-6 gap-4">
+          <p>© Vivid.Co</p>
+          
+          <div className="flex items-center gap-3">
+            {/* Mobile WhatsApp */}
+            <a
+              href="https://wa.me/YOUR_PHONE_NUMBER"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="w-9 h-9 rounded-full bg-stone-200/80 text-stone-800 hover:bg-black hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm"
+            >
+              <FaWhatsapp className="w-4 h-4" />
+            </a>
+
+            {/* Mobile Instagram */}
+            <a
+              href="https://instagram.com/YOUR_USERNAME"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-9 h-9 rounded-full bg-stone-200/80 text-stone-800 hover:bg-black hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm"
+            >
+              <FaInstagram className="w-4 h-4" />
+            </a>
+
+            {/* Mobile Facebook */}
+            <a
+              href="https://facebook.com/YOUR_PAGE"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-9 h-9 rounded-full bg-stone-200/80 text-stone-800 hover:bg-black hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm"
+            >
+              <FaFacebookF className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
+
       </div>
     </>
   );

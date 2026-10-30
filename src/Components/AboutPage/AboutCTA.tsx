@@ -12,7 +12,7 @@ export default function AboutCTA() {
         
         {/* Heading */}
         <h2 className="text-4xl sm:text-6xl font-extralight tracking-tight leading-[1.1] text-stone-900">
-          Experience the Sanctuary
+         Enter the World of Vivid.Co
         </h2>
 
         {/* Description */}
