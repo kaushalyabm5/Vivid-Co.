@@ -4,17 +4,47 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function LoadingScreen() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
 
+  // 1. When route changes, hide the loader after delay
   useEffect(() => {
-    setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 900);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, [pathname]);
+
+  // 2. Intercept any link clicks across the site to show loader INSTANTLY
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest("a");
+      if (target && target.href) {
+        const targetUrl = new URL(target.href);
+        // Check if it's an internal link and not the current page
+        if (
+          targetUrl.origin === window.location.origin &&
+          targetUrl.pathname !== pathname &&
+          !target.getAttribute("target")
+        ) {
+          setIsLoading(true);
+        }
+      }
+    };
+
+    document.addEventListener("click", handleClick, true);
+    return () => document.removeEventListener("click", handleClick, true);
+  }, [pathname]);
+
+  // Initial load handler
+  useEffect(() => {
+    setIsLoading(true);
+    const initialTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 900);
+    return () => clearTimeout(initialTimer);
+  }, []);
 
   return (
     <>
@@ -50,9 +80,6 @@ export default function LoadingScreen() {
           <div className="w-36 sm:w-48 h-[1px] bg-stone-200 overflow-hidden relative">
             <div className="absolute inset-0 bg-stone-900 w-full luxury-bar-animation" />
           </div>
-
-          {/* Minimal Subtext */}
-        
         </div>
       </div>
     </>
