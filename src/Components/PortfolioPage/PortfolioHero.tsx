@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import heroBg from "@/assets/aboutpage/about-hero.png";
+import heroBg from "@/assets/portfoliopage/portfolio-hero-img2.png";
 
 export default function PortfolioHero() {
   return (
