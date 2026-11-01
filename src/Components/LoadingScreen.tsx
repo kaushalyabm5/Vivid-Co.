@@ -7,38 +7,39 @@ export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
 
-  // Hide loader after page render completes
+  // 1. Reset loading state whenever pathname actually changes
   useEffect(() => {
+    setIsLoading(true);
+    
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  // Instantly trigger loader visually on any Internal Link click
+  // 2. Intercept link clicks cleanly without breaking Next.js router
   useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
+    const handleAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a");
-      if (target && target.href) {
-        const targetUrl = new URL(target.href);
-        // If clicking a different internal route
-        if (
-          targetUrl.origin === window.location.origin &&
-          targetUrl.pathname !== pathname &&
-          !target.getAttribute("target")
-        ) {
-          const loaderEl = document.getElementById("vivid-loading-screen");
-          if (loaderEl) {
-            loaderEl.style.opacity = "1";
-            loaderEl.style.pointerEvents = "auto";
-          }
-        }
+      if (!target) return;
+
+      const href = target.getAttribute("href");
+      // Check if it's an internal route change
+      if (
+        href &&
+        href.startsWith("/") &&
+        href !== pathname &&
+        !target.getAttribute("target") &&
+        !e.ctrlKey &&
+        !e.metaKey
+      ) {
+        setIsLoading(true);
       }
     };
 
-    document.addEventListener("click", handleClick, true);
-    return () => document.removeEventListener("click", handleClick, true);
+    document.addEventListener("click", handleAnchorClick, true);
+    return () => document.removeEventListener("click", handleAnchorClick, true);
   }, [pathname]);
 
   return (
@@ -61,21 +62,27 @@ export default function LoadingScreen() {
       `}</style>
 
       <div
-        id="vivid-loading-screen"
-        style={{
-          opacity: isLoading ? 1 : 0,
-          pointerEvents: isLoading ? "auto" : "none",
-        }}
-        className="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out"
+        className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
+          isLoading
+            ? "opacity-100 pointer-events-auto visible"
+            : "opacity-0 pointer-events-none invisible"
+        }`}
       >
         <div className="flex flex-col items-center space-y-8 select-none px-6">
+          {/* Main Brand Typography */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-[0.25em] uppercase text-stone-900 leading-none pl-[0.25em]">
             Vivid.Co
           </h1>
 
+          {/* High-End Minimalist Loading Bar */}
           <div className="w-36 sm:w-48 h-[1px] bg-stone-200 overflow-hidden relative">
             <div className="absolute inset-0 bg-stone-900 w-full luxury-bar-animation" />
           </div>
+
+          {/* Minimal Subtext */}
+          <p className="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-light text-stone-400 pl-[0.4em]">
+            Bespoke Atelier
+          </p>
         </div>
       </div>
     </>
