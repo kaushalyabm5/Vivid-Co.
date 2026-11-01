@@ -12,21 +12,21 @@ export default function AboutCTA() {
         
         {/* Heading */}
         <h2 className="text-4xl sm:text-6xl font-extralight tracking-tight leading-[1.1] text-stone-900">
-          Experience the Art of Refinement
+          Witness the Masterpiece
         </h2>
 
         {/* Description */}
         <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed max-w-2xl mx-auto tracking-wide">
-          Explore our bespoke catalog of hair architecture and dermal science. Discover the curated rituals designed to elevate your personal style.
+          Explore our curated gallery of architectural transformations and precision styling. See the tangible evidence of uncompromising artistry.
         </p>
 
         {/* Action Button */}
         <div className="pt-4 flex justify-center">
           <Link
-            href="/services"
+            href="/portfolio"
             className="inline-flex items-center gap-3 px-8 py-4 bg-stone-900 text-white text-xs uppercase tracking-[0.25em] font-light hover:bg-stone-800 transition-all duration-300 group shadow-lg cursor-pointer"
           >
-            <span>Explore Our Services</span>
+            <span>View Our Works</span>
             <ArrowUpRight className="w-4 h-4 stroke-[1.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
           </Link>
         </div>

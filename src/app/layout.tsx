@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/Components/Common/Navbar";
 import Footer from "@/Components/Common/Footer";
 import SmoothScroll from "@/Components/Common/SmoothScroll";
+import LoadingScreen from "@/Components/LoadingScreen";
+
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -23,6 +25,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white font-sans text-gray-900">
+        {/* 2. LoadingScreen එක මෙතැනින් එකතු කරන්න */}
+        <LoadingScreen />
+
         <SmoothScroll>
           <Navbar />
           {children}

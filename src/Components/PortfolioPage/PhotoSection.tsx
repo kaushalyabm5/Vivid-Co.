@@ -5,16 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-import work1 from "@/assets/homepage/home-gallery/1.jpg";
-import work2 from "@/assets/homepage/home-gallery/2.jpg";
-import work3 from "@/assets/homepage/home-gallery/3.jpg";
-import work4 from "@/assets/homepage/home-gallery/4.jpg";
-import work5 from "@/assets/homepage/home-gallery/5.jpg";
-import work6 from "@/assets/homepage/home-gallery/6.jpg";
-import work7 from "@/assets/homepage/home-gallery/7.jpg";
-import work8 from "@/assets/homepage/home-gallery/8.jpg";
-import work9 from "@/assets/homepage/home-gallery/9.jpg";
-import work10 from "@/assets/homepage/home-gallery/10.jpg";
+import work1 from "@/assets/portfoliopage/portfolio-images/1.jpg";
+import work2 from "@/assets/portfoliopage/portfolio-images/2.jpg";
+import work3 from "@/assets/portfoliopage/portfolio-images/3.jpg";
+import work4 from "@/assets/portfoliopage/portfolio-images/4.jpg";
+import work5 from "@/assets/portfoliopage/portfolio-images/5.jpg";
+import work6 from "@/assets/portfoliopage/portfolio-images/6.jpg";
+import work7 from "@/assets/portfoliopage/portfolio-images/7.jpg";
+import work8 from "@/assets/portfoliopage/portfolio-images/8.jpg";
+import work9 from "@/assets/portfoliopage/portfolio-images/9.jpg";
+import work10 from "@/assets/portfoliopage/portfolio-images/10.jpg";
+
 
 export default function PhotoSection() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -159,7 +160,7 @@ export default function PhotoSection() {
                 </div>
 
                 <Link
-                  href="/contact"
+                  href="#"
                   aria-label="View Details"
                   className="p-3 bg-stone-100 text-stone-900 hover:bg-stone-950 hover:text-white transition-all duration-300 rounded-full group/btn shrink-0"
                 >
