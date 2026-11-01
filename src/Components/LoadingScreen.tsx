@@ -4,10 +4,10 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function LoadingScreen() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
 
-  // 1. When route changes, hide the loader after delay
+  // Hide loader after page render completes
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -16,19 +16,23 @@ export default function LoadingScreen() {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  // 2. Intercept any link clicks across the site to show loader INSTANTLY
+  // Instantly trigger loader visually on any Internal Link click
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a");
       if (target && target.href) {
         const targetUrl = new URL(target.href);
-        // Check if it's an internal link and not the current page
+        // If clicking a different internal route
         if (
           targetUrl.origin === window.location.origin &&
           targetUrl.pathname !== pathname &&
           !target.getAttribute("target")
         ) {
-          setIsLoading(true);
+          const loaderEl = document.getElementById("vivid-loading-screen");
+          if (loaderEl) {
+            loaderEl.style.opacity = "1";
+            loaderEl.style.pointerEvents = "auto";
+          }
         }
       }
     };
@@ -36,15 +40,6 @@ export default function LoadingScreen() {
     document.addEventListener("click", handleClick, true);
     return () => document.removeEventListener("click", handleClick, true);
   }, [pathname]);
-
-  // Initial load handler
-  useEffect(() => {
-    setIsLoading(true);
-    const initialTimer = setTimeout(() => {
-      setIsLoading(false);
-    }, 900);
-    return () => clearTimeout(initialTimer);
-  }, []);
 
   return (
     <>
@@ -66,17 +61,18 @@ export default function LoadingScreen() {
       `}</style>
 
       <div
-        className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out ${
-          isLoading ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        id="vivid-loading-screen"
+        style={{
+          opacity: isLoading ? 1 : 0,
+          pointerEvents: isLoading ? "auto" : "none",
+        }}
+        className="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out"
       >
         <div className="flex flex-col items-center space-y-8 select-none px-6">
-          {/* Main Brand Typography */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-[0.25em] uppercase text-stone-900 leading-none pl-[0.25em]">
             Vivid.Co
           </h1>
 
-          {/* High-End Minimalist Loading Bar */}
           <div className="w-36 sm:w-48 h-[1px] bg-stone-200 overflow-hidden relative">
             <div className="absolute inset-0 bg-stone-900 w-full luxury-bar-animation" />
           </div>
