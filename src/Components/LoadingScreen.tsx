@@ -1,31 +1,32 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
+  const router = useRouter();
 
-  // 1. Reset loading state whenever pathname actually changes
+  // 1. Initial Page Load & Route Change Cleanup
   useEffect(() => {
-    setIsLoading(true);
-    
+    // Hide loader smoothly after page loads
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 700);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  // 2. Intercept link clicks cleanly without breaking Next.js router
+  // 2. Global Link Click Interceptor with Smooth Route Delay
   useEffect(() => {
-    const handleAnchorClick = (e: MouseEvent) => {
+    const handleGlobalLinkClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a");
       if (!target) return;
 
       const href = target.getAttribute("href");
-      // Check if it's an internal route change
+      
+      // Check if it's a valid internal link and not the same page
       if (
         href &&
         href.startsWith("/") &&
@@ -34,13 +35,22 @@ export default function LoadingScreen() {
         !e.ctrlKey &&
         !e.metaKey
       ) {
+        // Prevent instant Next.js navigation (Stops flashing!)
+        e.preventDefault();
+        
+        // Show Loading Screen Instantly
         setIsLoading(true);
+
+        // Wait briefly for white screen fade-in, then perform actual navigation
+        setTimeout(() => {
+          router.push(href);
+        }, 250);
       }
     };
 
-    document.addEventListener("click", handleAnchorClick, true);
-    return () => document.removeEventListener("click", handleAnchorClick, true);
-  }, [pathname]);
+    document.addEventListener("click", handleGlobalLinkClick, true);
+    return () => document.removeEventListener("click", handleGlobalLinkClick, true);
+  }, [pathname, router]);
 
   return (
     <>
@@ -62,10 +72,8 @@ export default function LoadingScreen() {
       `}</style>
 
       <div
-        className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
-          isLoading
-            ? "opacity-100 pointer-events-auto visible"
-            : "opacity-0 pointer-events-none invisible"
+        className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out ${
+          isLoading ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col items-center space-y-8 select-none px-6">
