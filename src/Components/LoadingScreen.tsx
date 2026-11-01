@@ -1,56 +1,23 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
-  const router = useRouter();
 
-  // 1. Initial Page Load & Route Change Cleanup
+  // 1. Trigger loader instantly whenever pathname changes
   useEffect(() => {
-    // Hide loader smoothly after page loads
+    setIsLoading(true);
+
+    // Keep loader visible just long enough for the new page to render completely behind it
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800);
+    }, 700); // 700ms luxury reveal time
 
     return () => clearTimeout(timer);
   }, [pathname]);
-
-  // 2. Global Link Click Interceptor with Smooth Route Delay
-  useEffect(() => {
-    const handleGlobalLinkClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest("a");
-      if (!target) return;
-
-      const href = target.getAttribute("href");
-      
-      // Check if it's a valid internal link and not the same page
-      if (
-        href &&
-        href.startsWith("/") &&
-        href !== pathname &&
-        !target.getAttribute("target") &&
-        !e.ctrlKey &&
-        !e.metaKey
-      ) {
-        // Prevent instant Next.js navigation (Stops flashing!)
-        e.preventDefault();
-        
-        // Show Loading Screen Instantly
-        setIsLoading(true);
-
-        // Wait briefly for white screen fade-in, then perform actual navigation
-        setTimeout(() => {
-          router.push(href);
-        }, 250);
-      }
-    };
-
-    document.addEventListener("click", handleGlobalLinkClick, true);
-    return () => document.removeEventListener("click", handleGlobalLinkClick, true);
-  }, [pathname, router]);
 
   return (
     <>
@@ -72,7 +39,7 @@ export default function LoadingScreen() {
       `}</style>
 
       <div
-        className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out ${
+        className={`fixed inset-0 z-[99999] bg-white flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out ${
           isLoading ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
