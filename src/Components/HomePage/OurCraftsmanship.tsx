@@ -26,7 +26,7 @@ export default function OurSanctuary() {
           {/* Outlined Sharp Rectangle Button (Matching Becore Style) */}
           <div className="pt-4">
             <Link
-              href="/services"
+              href="#"
               className="inline-block px-8 py-3.5 border border-stone-900 text-stone-900 text-xs uppercase tracking-[0.2em] font-light hover:bg-stone-900 hover:text-white transition-all duration-300 text-center"
             >
               Explore Menu

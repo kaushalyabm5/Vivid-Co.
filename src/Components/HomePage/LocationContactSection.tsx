@@ -45,7 +45,7 @@ export default function LocationContactSection() {
           {/* Section Header */}
           <div className="space-y-3 text-left max-w-xl mb-14 sm:mb-20">
             <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-400 font-medium">
-              Sanctuary Access • Visit Us
+              Atelier Access • Visit Us
             </p>
             <h2 className="text-3xl sm:text-5xl font-extralight tracking-tight text-stone-900 leading-[1.15]">
               Location & Hours
@@ -60,7 +60,7 @@ export default function LocationContactSection() {
               <div className="space-y-6">
                 <div className="space-y-2 border-b border-stone-100 pb-4">
                   <p className="text-[10px] uppercase tracking-[0.25em] text-amber-800 font-medium">
-                    London Flagship Sanctuary
+                    London Flagship Atelier
                   </p>
                   <h3 className="text-2xl sm:text-3xl font-light text-stone-900 tracking-tight">
                     Mayfair, London
@@ -105,7 +105,7 @@ export default function LocationContactSection() {
               <div className="space-y-6">
                 <div className="space-y-2 border-b border-stone-100 pb-4">
                   <p className="text-[10px] uppercase tracking-[0.25em] text-amber-800 font-medium">
-                    Sanctuary Schedule
+                    Atelier Schedule
                   </p>
                   <h3 className="text-2xl sm:text-3xl font-light text-stone-900 tracking-tight">
                     Opening Hours

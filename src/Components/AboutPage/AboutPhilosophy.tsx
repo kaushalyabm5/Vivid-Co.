@@ -6,9 +6,10 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 // Importing images for the 3 pillars
-import pillar1Img from "@/assets/aboutpage/philosophy1.jpg"; // ඔබේ path එකට අනුව සකස් කර ගන්න
-import pillar2Img from "@/assets/aboutpage/philosophy2.jpg";
-import pillar3Img from "@/assets/aboutpage/philosophy3.jpg";
+import pillar1Img from "@/assets/aboutpage/philosophy/1.jpg";
+import pillar2Img from "@/assets/aboutpage/philosophy/2.png"; // ඔබේ path එකට අනුව සකස් කර ගන්න
+import pillar3Img from "@/assets/aboutpage/philosophy/3.jpg";
+
 
 export default function AboutPhilosophy() {
   const pillars = [
@@ -30,10 +31,10 @@ export default function AboutPhilosophy() {
     },
     {
       number: "03",
-      badge: "Absolute Sanctuary",
+      badge: "Absolute Solitude",
       title: "Absolute Solitude & Privacy",
       description:
-        "A quiet sanctuary stripped of transient rush and crowded noise. Your time here is dedicated entirely to undisturbed restoration and individual artistry.",
+        "A quiet, private space stripped of transient rush and crowded noise. Your time here is dedicated entirely to undisturbed restoration and individual artistry.",
       image: pillar3Img,
     },
   ];
@@ -96,7 +97,7 @@ export default function AboutPhilosophy() {
                   </span>
                   
                   <Link
-                    href="/services"
+                    href="#"
                     className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] font-medium text-stone-900 group-hover:text-amber-800 transition-colors duration-300"
                   >
                     <span>Discover</span>

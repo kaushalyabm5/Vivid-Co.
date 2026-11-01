@@ -106,7 +106,7 @@ export default function SpecialOffers() {
                   </div>
 
                   <Link
-                    href="/booking"
+                    href="#"
                     className="inline-block px-7 py-3 border border-stone-900 text-stone-900 text-xs uppercase tracking-[0.2em] font-light hover:bg-stone-900 hover:text-white transition-all duration-300 text-center"
                   >
                     Reserve Offer

@@ -111,7 +111,7 @@ export default function Footer() {
           {/* Brand Philosophy & Address */}
           <div className="md:col-span-5 space-y-4 text-left">
             <p className="text-[10px] uppercase tracking-[0.3em] text-amber-700 font-medium">
-              Vivid.Co • Mayfair Sanctuary
+              Vivid.Co • Mayfair Atelier
             </p>
             <h3 className="text-xl sm:text-2xl font-light text-stone-100 tracking-tight leading-snug">
               Precision Hair Architecture & <br /> Dermal Cellular Science.
@@ -135,17 +135,17 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services" className="hover:text-amber-600 transition-colors duration-300">
-                  Signature Services
+                  Services
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-amber-600 transition-colors duration-300">
-                  Our Philosophy
+                  About
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-amber-600 transition-colors duration-300">
-                  Private Concierge
+                  Portfolio
                 </Link>
               </li>
             </ul>

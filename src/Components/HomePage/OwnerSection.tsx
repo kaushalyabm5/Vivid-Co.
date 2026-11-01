@@ -37,12 +37,7 @@ export default function OwnerSection() {
             &ldquo;Beauty at Vivid.Co is not about changing who you are, but honoring your individuality through precision hair architecture, organic purity, and effortless sophistication.&rdquo;
           </p>
 
-          {/* Sub Detail */}
-          <div className="pt-2">
-            <span className="font-serif italic text-xs text-stone-400 tracking-wider">
-              — London Sanctuary Aesthetics
-            </span>
-          </div>
+          
 
         </div>
 

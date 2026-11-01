@@ -46,7 +46,7 @@ export default function HorizontalGallery() {
           Portfolio • Atmosphere
         </p>
         <h2 className="text-3xl sm:text-5xl font-extralight tracking-tight text-stone-900">
-          Visual Sanctuary
+          The Lookbook
         </h2>
       </div>
 

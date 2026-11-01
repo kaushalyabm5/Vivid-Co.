@@ -117,13 +117,7 @@ export default function FeaturedServices() {
                   </span>
                 </div>
 
-                <Link
-                  href="/booking"
-                  className="inline-flex items-center gap-2 text-stone-900 text-xs uppercase tracking-[0.2em] font-light border-b border-stone-900 pb-0.5 hover:text-amber-800 hover:border-amber-800 transition-colors duration-300"
-                >
-                  <span>Reserve</span>
-                  <span className="text-sm font-extralight">→</span>
-                </Link>
+            
               </div>
 
             </div>

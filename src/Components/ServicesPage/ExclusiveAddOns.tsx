@@ -5,16 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Importing sample images (you can replace these with your actual enhancement images)
-import addOn1 from "@/assets/homepage/home-gallery/2.jpg";
-import addOn2 from "@/assets/homepage/home-gallery/5.jpg";
-import addOn3 from "@/assets/homepage/home-gallery/8.jpg";
-import addOn4 from "@/assets/homepage/home-gallery/11.jpg";
+import addOn1 from "@/assets/servicespage/exclusive-services/1.png";
+import addOn2 from "@/assets/servicespage/exclusive-services/2.png";
+import addOn3 from "@/assets/servicespage/exclusive-services/3.png";
+import addOn4 from "@/assets/servicespage/exclusive-services/4.png";
+
 
 export default function ExclusiveAddOns() {
   const addOns = [
     {
       id: "01",
-      badge: "Sanctuary Elixir",
+      badge: "Botanical Elixir",
       name: "Organic Scalp Elixir Infusion",
       duration: "+20 Mins",
       price: "£45",
@@ -55,7 +56,7 @@ export default function ExclusiveAddOns() {
   ];
 
   return (
-    <section className="w-full bg-[#FAFAFA] text-stone-900 py-24 lg:py-32 overflow-hidden">
+    <section className="w-full bg-[white] text-stone-900 py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-16">
         
         {/* Section Header (Without Eyebrow Title) */}

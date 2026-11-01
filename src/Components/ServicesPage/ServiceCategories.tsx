@@ -5,14 +5,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Sample images
-import s1 from "@/assets/homepage/packages/p1.jpg";
-import s2 from "@/assets/homepage/packages/p2.jpg";
-import s3 from "@/assets/homepage/home-gallery/1.jpg";
-import s4 from "@/assets/homepage/home-gallery/4.jpg";
-import s5 from "@/assets/homepage/home-gallery/7.jpg";
-import s6 from "@/assets/homepage/home-gallery/10.jpg";
-import s7 from "@/assets/homepage/home-gallery/13.jpg";
-import s8 from "@/assets/homepage/home-gallery/16.jpg";
+import s1 from "@/assets/servicespage/services/1.png";
+import s2 from "@/assets/servicespage/services/2.png";
+import s3 from "@/assets/servicespage/services/3.png";
+import s4 from "@/assets/servicespage/services/4.png";
+import s5 from "@/assets/servicespage/services/5.png";
+import s6 from "@/assets/servicespage/services/6.png";
+import s7 from "@/assets/servicespage/services/7.png";
+import s8 from "@/assets/servicespage/services/8.png";
+
 
 export default function ServiceCategories() {
   const [activeCategory, setActiveCategory] = useState("All Rituals");
@@ -74,7 +75,7 @@ export default function ServiceCategories() {
     {
       id: 5,
       category: "Organic Botanical Care",
-      badge: "Sanctuary Care",
+      badge: "Botanical Ritual",
       name: "Botanical Hair & Scalp Therapy",
       duration: "75 Mins",
       price: "£150",
@@ -134,7 +135,7 @@ export default function ServiceCategories() {
       : servicesData.filter((service) => service.category === activeCategory);
 
   return (
-    <section className="w-full bg-[#FAFAFA] text-stone-900 py-20 lg:py-28 px-6 sm:px-12 lg:px-16 border-b border-stone-200/80">
+    <section className="w-full bg-[white] text-stone-900 py-20 lg:py-28 px-6 sm:px-12 lg:px-16 border-b border-stone-200/80">
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Centered Header & Centered White Category Navigation Bar */}
@@ -144,7 +145,7 @@ export default function ServiceCategories() {
           <div className="space-y-3 max-w-2xl">
           
             <h2 className="text-3xl sm:text-5xl font-extralight tracking-tight text-stone-900">
-              The Sanctuary Menu
+              Curated Services
             </h2>
             <p className="text-stone-500 text-xs sm:text-sm font-light leading-relaxed pt-1">
               Explore our bespoke offerings designed for absolute refinement, precision hair architecture, and cellular skin wellness.
@@ -226,7 +227,7 @@ export default function ServiceCategories() {
                   </div>
 
                   <Link
-                    href="/contact"
+                    href="#"
                     className="inline-block px-7 py-3 border border-stone-900 text-stone-900 text-xs uppercase tracking-[0.2em] font-light hover:bg-stone-900 hover:text-white transition-all duration-300 text-center"
                   >
                     Inquire

@@ -172,7 +172,7 @@ export default function AboutStylists() {
                     </span>
 
                     <Link
-                      href="/contact"
+                      href="#"
                       className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-stone-900 text-white text-[10px] sm:text-xs uppercase tracking-[0.2em] font-light hover:bg-stone-800 transition-all duration-300 group/btn w-full sm:w-auto justify-center"
                     >
                       <span>Reserve Consultation</span>

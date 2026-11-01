@@ -3,11 +3,11 @@
 import React from "react";
 import Image from "next/image";
 // ඔබට අවශ්‍ය නම් මෙයට අදාළව වෙනත් රූපයක්ද යොදාගත හැක
-import philosophyImg from "@/assets/homepage/homeheroimg.png"; 
+import philosophyImg from "@/assets/servicespage/section2.jpg"; 
 
 export default function ConsultationPhilosophy() {
   return (
-    <section className="w-full bg-[#FAFAFA] text-stone-900 py-24 lg:pt-10 lg:pb-5 border-b border-stone-200/80 overflow-hidden">
+    <section className="w-full bg-[white] text-stone-900 py-24 lg:pt-10 lg:pb-5 border-b border-stone-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
         
         {/* Grid Container: Split Layout (Text & Atmospheric Image/Details) */}
