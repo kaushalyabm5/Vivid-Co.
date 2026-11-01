@@ -31,9 +31,9 @@ export default function HomeHero() {
 
           {/* Shorter & Minimalist Main Title (Centered, Pure White for clarity) */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.1] drop-shadow-md">
-            Pure luxury. <br />
+            Refined beauty. <br />
             <span className="font-light text-stone-200">
-              Refined beauty.
+              Redefined Solitude.
             </span>
           </h1>
 
@@ -45,10 +45,10 @@ export default function HomeHero() {
           {/* Two Buttons Centered (Sharp Edges) */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
             <Link
-              href="/booking"
+              href="/about"
               className="w-full sm:w-auto min-w-[170px] px-8 py-3.5 bg-white hover:bg-stone-100 text-stone-900 font-light text-xs tracking-[0.2em] uppercase border border-white transition-all duration-300 text-center shadow-lg"
             >
-              Book Now
+              About Us
             </Link>
 
             <Link

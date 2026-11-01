@@ -15,7 +15,7 @@ export default function BrandIntro() {
 
         {/* Primary Description Paragraph */}
         <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed max-w-2xl mx-auto tracking-wide">
-          Vivid.Co is a London-inspired boutique beauty and hair sanctuary, bringing together artisan styling, radiant skin therapies, and mindful self-care rituals. Experience Vivid.Co at our private studio or discover our curated collection of botanical care products.
+          Vivid.Co is a London-inspired boutique beauty and hair atelier, bringing together artisan styling, radiant skin therapies, and mindful self-care rituals. Experience Vivid.Co at our private atelier or discover our curated collection of botanical care products.
         </p>
 
         {/* Secondary Detail Paragraph */}
@@ -26,10 +26,10 @@ export default function BrandIntro() {
         {/* Solid Dark CTA Button (Sharp Edges) */}
         <div className="pt-4">
           <Link
-            href="/booking"
+            href="/portfolio"
             className="inline-block px-9 py-4 bg-stone-900 hover:bg-stone-800 text-white text-xs uppercase tracking-[0.25em] font-light border border-stone-900 transition-all duration-300"
           >
-            Book Appointment
+            See Our Portfolio
           </Link>
         </div>
 
