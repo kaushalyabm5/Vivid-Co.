@@ -168,7 +168,7 @@ export default function AboutStylists() {
                   {/* Card Footer / Action */}
                   <div className="pt-4 sm:pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-stone-400 font-light">
-                      Bespoke Sanctuary
+                     Vivid.Co
                     </span>
 
                     <Link
