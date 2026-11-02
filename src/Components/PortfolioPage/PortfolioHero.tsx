@@ -1,17 +1,32 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import heroBg from "@/assets/portfoliopage/portfolio-hero-img2.png";
+import heroBgMobile from "@/assets/portfoliopage/portfolio-hero-mobile.png";
 
 export default function PortfolioHero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // 768px (md breakpoint)
+    };
+
+    // Check on initial load
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="relative min-h-screen w-full bg-[#0A0A0A] text-stone-100 flex items-center justify-center overflow-hidden border-b border-stone-800/60">
       
-      {/* Background Image with Dark Atmospheric Overlay */}
+      {/* Background Image with Dark Atmospheric Overlay (ඔබගේ මුල් structural code එකමයි) */}
       <div className="absolute inset-0 z-0 opacity-25">
         <Image
-          src={heroBg}
+          src={isMobile ? heroBgMobile : heroBg}
           alt="Vivid.Co Services Hero"
           fill
           priority
