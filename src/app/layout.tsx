@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import Navbar from "@/Components/Common/Navbar";
 import Footer from "@/Components/Common/Footer";
 import SmoothScroll from "@/Components/Common/SmoothScroll";
 import LoadingScreen from "@/Components/LoadingScreen";
-
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white font-sans text-gray-900">
-        {/* 2. LoadingScreen එක මෙතැනින් එකතු කරන්න */}
-        <LoadingScreen />
+        
+        {/* Suspense එක සමඟ Page Loader එක එකතු කිරීම */}
+        <Suspense fallback={null}>
+          <LoadingScreen />
+        </Suspense>
 
         <SmoothScroll>
           <Navbar />
