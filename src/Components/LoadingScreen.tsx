@@ -6,16 +6,14 @@ import { usePathname } from "next/navigation";
 export default function LoadingScreen() {
   const pathname = usePathname();
   const isFirstMount = useRef(true);
-
   const [isLoading, setIsLoading] = useState(true);
 
-  // Run Loader animation timer
   const startLoader = () => {
     setIsLoading(true);
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800); // 800ms luxury reveal time
+    }, 800); // 800ms luxury display time
 
     return () => clearTimeout(timer);
   };
@@ -40,7 +38,7 @@ export default function LoadingScreen() {
     return () => cleanup();
   }, [pathname]);
 
-  // 3. Intercept Link Clicks instantly to prevent flashing
+  // 3. Intercept Link Clicks instantly
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -64,8 +62,11 @@ export default function LoadingScreen() {
     return () => document.removeEventListener("click", handleClick, true);
   }, [pathname]);
 
+  // ප්‍රධාන රහස: Loading නැති අවස්ථාවක DOM එකෙන් සම්පූර්ණයෙන්ම ඉවත් වේ (No Flashing!)
+  if (!isLoading) return null;
+
   return (
-    <>
+    <div className="fixed inset-0 z-[99999] bg-white flex flex-col items-center justify-center overflow-hidden">
       <style jsx>{`
         @keyframes luxurySlide {
           0% {
@@ -83,30 +84,22 @@ export default function LoadingScreen() {
         }
       `}</style>
 
-      <div
-        className={`fixed inset-0 z-[99999] bg-white flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out ${
-          isLoading
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex flex-col items-center space-y-8 select-none px-6">
-          {/* Main Brand Typography */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-[0.25em] uppercase text-stone-900 leading-none pl-[0.25em]">
-            Vivid.Co
-          </h1>
+      <div className="flex flex-col items-center space-y-8 select-none px-6">
+        {/* Main Brand Typography */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extralight tracking-[0.25em] uppercase text-stone-900 leading-none pl-[0.25em]">
+          Vivid.Co
+        </h1>
 
-          {/* High-End Minimalist Loading Bar */}
-          <div className="w-36 sm:w-48 h-[1px] bg-stone-200 overflow-hidden relative">
-            <div className="absolute inset-0 bg-stone-900 w-full luxury-bar-animation" />
-          </div>
-
-          {/* Minimal Subtext */}
-          <p className="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-light text-stone-400 pl-[0.4em]">
-            Bespoke Atelier
-          </p>
+        {/* High-End Minimalist Loading Bar */}
+        <div className="w-36 sm:w-48 h-[1px] bg-stone-200 overflow-hidden relative">
+          <div className="absolute inset-0 bg-stone-900 w-full luxury-bar-animation" />
         </div>
+
+        {/* Minimal Subtext */}
+        <p className="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-light text-stone-400 pl-[0.4em]">
+          Bespoke Atelier
+        </p>
       </div>
-    </>
+    </div>
   );
 }
