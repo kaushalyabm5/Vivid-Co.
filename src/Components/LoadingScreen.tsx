@@ -96,9 +96,7 @@ export default function LoadingScreen() {
         </div>
 
         {/* Minimal Subtext */}
-        <p className="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-light text-stone-400 pl-[0.4em]">
-          Bespoke Atelier
-        </p>
+       
       </div>
     </div>
   );
