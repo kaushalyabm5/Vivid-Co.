@@ -173,7 +173,7 @@ export default function Navbar() {
         {/* Top Header inside Overlay */}
         <div className="flex items-center justify-between w-full">
           <span className="text-2xl font-normal tracking-wider text-stone-900">
-            Vivid<span className="text-amber-800 font-sans text-xl">.Co</span>
+            Vivid<span className="text-stone-900 text-xl">.Co</span>
           </span>
 
           {/* Close Button */}

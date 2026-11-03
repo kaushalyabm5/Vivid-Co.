@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
     // Initialize Lenis
@@ -20,8 +19,6 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       touchMultiplier: 2,
     });
 
-    lenisRef.current = lenis;
-
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -29,20 +26,15 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     requestAnimationFrame(raf);
 
+    // Whenever pathname changes, scroll to top and resize lenis
+    window.scrollTo(0, 0);
+    lenis.scrollTo(0, { immediate: true });
+    lenis.resize();
+
     return () => {
       lenis.destroy();
-      lenisRef.current = null;
     };
-  }, []);
-
-  // Whenever the pathname changes (Page Navigation), scroll immediately to top
-  useEffect(() => {
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [pathname]);
+  }, [pathname]); // pathname එක දමන ලද නිසා සෑම page change එකකදීම lenis එක අලුතින් සහ නිවැරදිව load වේ
 
   return <>{children}</>;
 }
