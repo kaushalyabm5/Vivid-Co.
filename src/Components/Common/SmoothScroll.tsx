@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const lenisRef = useRef<Lenis | null>(null);
 
+  // 1. Mount Lenis once across the application lifecycle
   useEffect(() => {
-    // Initialize Lenis
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -19,22 +20,43 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       touchMultiplier: 2,
     });
 
+    lenisRef.current = lenis;
+
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
-
-    // Whenever pathname changes, scroll to top and resize lenis
-    window.scrollTo(0, 0);
-    lenis.scrollTo(0, { immediate: true });
-    lenis.resize();
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
     };
-  }, [pathname]); // pathname එක දමන ලද නිසා සෑම page change එකකදීම lenis එක අලුතින් සහ නිවැරදිව load වේ
+  }, []);
+
+  // 2. Handle Route Changes (Scroll to Top & Recalculate Page Height)
+  useEffect(() => {
+    // Browser එකේ native scroll එක මුලට යවනවා
+    window.scrollTo(0, 0);
+
+    if (lenisRef.current) {
+      // Lenis scroll එකත් 0 position එකට immediate force කරනවා
+      lenisRef.current.scrollTo(0, { immediate: true });
+
+      // Page content එක fully render වීමට කුඩා timeout එකක් තබා Resize & Reset කරනවා
+      const timer = setTimeout(() => {
+        if (lenisRef.current) {
+          lenisRef.current.resize();
+          lenisRef.current.scrollTo(0, { immediate: true });
+        }
+      }, 50);
+
+      return () => clearTimeout(timer);
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 }
