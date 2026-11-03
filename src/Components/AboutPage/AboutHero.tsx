@@ -1,18 +1,33 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import heroBg from "@/assets/aboutpage/about-hero.png";
+import heroBg from "@/assets/aboutpage/about-hero-compressed.png";
+import heroBgMobile from "@/assets/aboutpage/about-hero-mobile-compressed.png"; // මොබයිල් ඉමේජ් එක ඉම්පෝට් කරගත්තා
 
 export default function AboutHero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // 768px (md breakpoint)
+    };
+
+    // Check on initial load
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="relative min-h-screen w-full bg-[#0A0A0A] text-stone-100 flex items-center justify-center overflow-hidden border-b border-stone-800/60">
       
       {/* Background Image with Dark Atmospheric Overlay */}
       <div className="absolute inset-0 z-0 opacity-25">
         <Image
-          src={heroBg}
-          alt="Vivid.Co Services Hero"
+          src={isMobile ? heroBgMobile : heroBg}
+          alt="Vivid.Co About Hero"
           fill
           priority
           className="object-cover object-center scale-105"

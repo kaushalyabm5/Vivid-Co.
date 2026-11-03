@@ -1,18 +1,33 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import heroBg from "@/assets/homepage/homeheroimg6.jpg";
+import heroBg from "@/assets/homepage/homeheroimg6-compressed.jpg";
+import heroBgMobile from "@/assets/homepage/homehero-mobile-compressed.png"; // මොබයිල් ඉමේජ් එක ඉම්පෝට් කරගත්තා
 
 export default function HomeHero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // 768px (md breakpoint)
+    };
+
+    // Check on initial load
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="relative w-full min-h-screen text-white flex flex-col justify-center items-center overflow-hidden">
       
       {/* Background Image using Next/Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={heroBg}
+          src={isMobile ? heroBgMobile : heroBg}
           alt="Vivid.Co Salon Sanctuary"
           fill
           priority
@@ -27,8 +42,6 @@ export default function HomeHero() {
         
         <div className="max-w-2xl space-y-6 sm:space-y-8 flex flex-col items-center">
           
-          
-
           {/* Shorter & Minimalist Main Title (Centered, Pure White for clarity) */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.1] drop-shadow-md">
             Refined beauty. <br />

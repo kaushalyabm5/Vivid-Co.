@@ -7,8 +7,8 @@ import { ArrowUpRight } from "lucide-react";
 
 // Importing images for the 3 pillars
 import pillar1Img from "@/assets/aboutpage/philosophy/1.jpg";
-import pillar2Img from "@/assets/aboutpage/philosophy/2.png"; // ඔබේ path එකට අනුව සකස් කර ගන්න
-import pillar3Img from "@/assets/aboutpage/philosophy/3.jpg";
+import pillar2Img from "@/assets/aboutpage/philosophy/2-compressed.png"; // ඔබේ path එකට අනුව සකස් කර ගන්න
+import pillar3Img from "@/assets/aboutpage/philosophy/3-compressed.jpg";
 
 
 export default function AboutPhilosophy() {
